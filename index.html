@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonald's Inspired Landing Page</title>
+    <style>
+        /* Global Styles & Variables */
+        :root {
+            --mcd-red: #DA291C;
+            --mcd-yellow: #FFC72C;
+            --mcd-black: #27251F;
+            --mcd-white: #FFFFFF;
+            --mcd-gray: #F4F4F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Speedee', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--mcd-white);
+            color: var(--mcd-black);
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--mcd-white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--mcd-yellow);
+            text-decoration: none;
+            /* Simulating the iconic 'M' look textually */
+            text-shadow: 2px 2px 0px var(--mcd-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--mcd-black);
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--mcd-red);
+        }
+
+        .cta-btn {
+            background-color: var(--mcd-red);
+            color: var(--mcd-white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #b81e13;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--mcd-red);
+            color: var(--mcd-white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--mcd-yellow);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero .order-btn {
+            background-color: var(--mcd-yellow);
+            color: var(--mcd-black);
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .hero .order-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .menu-section h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .menu-section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--mcd-yellow);
+            margin: 10px auto 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--mcd-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            padding-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #777;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin: 20px 0 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .card .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--mcd-red);
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            background-color: var(--mcd-black);
+            color: var(--mcd-white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--mcd-red);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--mcd-black);
+            color: var(--mcd-white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--mcd-yellow);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">M</a>
+            <ul class="nav-links">
+                <li><a href="#">Our Menu</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Deals</a></li>
+            </ul>
+            <a href="#" class="cta-btn">Order Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Showcase -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>I'm Lovin' It.</h1>
+            <p>Get your favorite burgers, fries, and shakes delivered straight to your door or ready for pickup.</p>
+            <button class="order-btn">View Full Menu</button>
+        </div>
+    </section>
+
+    <!-- Menu Cards Grid -->
+    <section class="menu-section">
+        <h2>Fan Favorites</h2>
+        <div class="grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-img-placeholder">Big Mac Photo</div>
+                <h3>The Iconic Big Mac</h3>
+                <p>Two all-beef patties, special sauce, lettuce, cheese, pickles, onions on a sesame seed burger bun.</p>
+                <span class="price">$5.49</span>
+                <button class="add-to-cart">Add to Order</button>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-img-placeholder">World Famous Fries Photo</div>
+                <h3>World Famous Fries</h3>
+                <p>Our gold standard fries, crisp and golden on the outside, fluffy on the inside.</p>
+                <span class="price">$2.99</span>
+                <button class="add-to-cart">Add to Order</button>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-img-placeholder">Egg McMuffin Photo</div>
+                <h3>Egg McMuffin</h3>
+                <p>A freshly cracked grade A egg with Canadian bacon and melty American cheese on a toasted English muffin.</p>
+                <span class="price">$3.99</span>
+                <button class="add-to-cart">Add to Order</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Footer -->
+    <footer>
+        <p>&copy; 2026 MockDonald's. For demonstration purposes only.</p>
+        <p style="margin-top: 10px;">Built with &hearts; using HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
